@@ -415,6 +415,15 @@
         android:layout_alignLeft="@+id/textView29"
         android:layout_alignStart="@+id/textView29" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description of Item 13"
+        android:id="@+id/textView31"
+        android:layout_below="@+id/textView30"
+        android:layout_alignLeft="@+id/textView29"
+        android:layout_alignStart="@+id/textView29" />
+
 
 </RelativeLayout>
 </ScrollView>

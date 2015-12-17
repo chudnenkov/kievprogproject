@@ -1,11 +1,17 @@
 package com.example.roman.kievprog_1;
 
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity{ //ActionBarActivity {
@@ -15,29 +21,27 @@ public class MainActivity extends AppCompatActivity{ //ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity2_main);
         Log.i("TAG",  "tes");
+
+        LayoutInflater vi = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+      //  View v = vi.inflate(R.layout.one_item, null);
+
+        LinearLayout insertPoint = (LinearLayout) findViewById(R.id.container);
+
+        for (int i = 0; i<20; i++ ) {
+            View v = vi.inflate(R.layout.one_item, null);
+
+            TextView textView = (TextView) v.findViewById(R.id.textView32);
+            textView.setText("Item" + String.valueOf(i));
+            TextView textView2 = (TextView) v.findViewById(R.id.textView33);
+            textView2.setText("Description of Item" + String.valueOf(i));
+
+            insertPoint.addView(v, i);
+
+        }
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }*/
 
-  /*  @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }*/
 }
